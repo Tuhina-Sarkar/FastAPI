@@ -82,8 +82,8 @@ def update_todo(todo_id:int,title:str,db:Session=Depends(get_db)):
   else:
     todo.title=title
 
-    db.commit()
-    db.refresh(todo)
+    db.commit()  #saves the changes 
+    db.refresh(todo)  #updates the db object with the latest data
 
     return{
       "message":"Data updated successfully",
